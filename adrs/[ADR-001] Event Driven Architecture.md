@@ -20,7 +20,19 @@ The trade-offs here would be:
 - Eventual Consistency: Real-time dashboards and cloud AI models will experience processing delays for data originating from disconnected park zones until connectivity resumes.
 
 ### Alternatives Considered
-None
+
+#### Alternative 1: Monolithic Synchronous ReST API
+##### Description
+Edge devices directly post HTTP requests to a central cloud API server.
+##### Why it won't work
+Patchy wifi network means data loss and blocking operations during temporary outages
+
+#### Alternative 2: Edge Heavy Compute
+##### Description
+Process sensor streams and run localized AI/Compute on on-premise hardware.
+##### Why it won't work
+Maintaining heavy compute hardware on the edge would be expensive. It would need an in-house team to apply security patches, fix issues etc. It would also need heavy supporting infrastructure like uninterrupted power supply. 
+
 
 ### References
 - [GeeksForGeeks](https://www.geeksforgeeks.org/system-design/event-driven-architecture-system-design/)
