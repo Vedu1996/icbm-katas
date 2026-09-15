@@ -1,4 +1,4 @@
-## ADR [005]: **Buy and Integrate Commercial Task Management System vs. Custom Build**
+## ADR [005]: Buy and Integrate Commercial Task Management System vs. Custom Build
 
 ### Status
 - PROPOSED

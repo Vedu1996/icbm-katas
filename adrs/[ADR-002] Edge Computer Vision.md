@@ -1,4 +1,4 @@
-## ADR [002]: Edge Computer Vision for Crowd Density with Anonymized Aggregation vs. BLE/RFID Tracking**
+## ADR [002]: Edge Computer Vision for Crowd Density with Anonymized Aggregation vs. BLE/RFID Tracking
 
 ### Status
 - PROPOSED

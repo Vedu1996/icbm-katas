@@ -1,5 +1,3 @@
-# Architecture Decision Record (ADR) Template
-
 ## ADR [003]: Asymmetric Cryptography & Delegate Key Chains for Offline-Capable Ticketing
 
 ### Status

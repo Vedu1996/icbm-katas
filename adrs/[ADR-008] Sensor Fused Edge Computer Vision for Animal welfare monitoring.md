@@ -1,4 +1,4 @@
-# ADR: Sensor-Fused Edge Computer Vision for Animal Welfare Monitoring
+# ADR [008]: Sensor-Fused Edge Computer Vision for Animal Welfare Monitoring
 
 ## Status
  - PROPOSED
