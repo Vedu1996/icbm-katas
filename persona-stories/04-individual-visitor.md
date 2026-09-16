@@ -4,27 +4,25 @@
 
 **Name:** Marcus Lee  
 **Role:** Individual visitor  
-**Primary goal:** Spend a relaxed day at the estate with minimal waiting and clear information.
+**Primary goal:** Enjoy the day with easy access, short waits, and clear guidance.
 
 ## A Day at the Estate
 
-Marcus buys a digital ticket through the visitor portal. At the entrance, the turnstile scans his QR code and verifies the signed ticket locally. He enters without waiting for a live call to the cloud.
+Marcus buys his ticket online before arriving. At the gate, he scans his pass and walks through quickly. The entry check happens locally, so he does not have to wait for a cloud call or a slow connection to be approved.
 
-At the ride area, the turnstile verifies his ticket entitlement and records the scan. If the estate temporarily loses connectivity, the scan can be stored locally and synchronized later.
+Later, he wants to know which parts of the estate are quieter and which rides have the shortest lines. He asks the guest assistant for a route and wait estimates, and it gives him a simple answer based on current crowd levels. It does not know who Marcus is or follow him around the estate.
 
-Marcus asks the guest chatbot for a quieter route through the estate and current wait times for two rides. The chatbot uses aggregate crowd information from edge vision systems. It does not need to know Marcus's identity or follow his movement from zone to zone.
+As he walks through the park, Marcus notices a sign near an animal enclosure that is unclear. He reports it through the guest experience flow, and the estate team can pick it up quickly. He also asks whether an animal seems unwell. The assistant does not make a medical judgment; it gives him safe, limited information and directs him to a member of staff.
 
-He later reports that a sign near an animal enclosure is confusing. The feedback becomes an event for the guest-experience team. When Marcus asks about a possible animal welfare issue, the chatbot provides limited guidance and directs him to human staff rather than making an official assessment.
+The system is designed to make the visit smoother without turning the day into a tracking exercise. Marcus gets useful information, quick access, and a clear route to a person if his question needs a real answer.
 
 ## System Interaction
 
-- The visitor portal handles online ticket purchase.
-- Signed tickets support fast, offline-capable entry validation.
-- Turnstiles maintain local scan state to reduce replay risk.
-- Edge computer vision produces anonymous crowd counts and wait estimates.
-- The guest chatbot accesses approved read-only information.
-- The LLM gateway applies privacy, safety, scope, and escalation controls.
+- Ticket scanning works quickly even if the wider network is shaky. See [ADR-003](../adrs/%5BADR-003%5D%20Asymmetric%20cryptography%20for%20ticketing%20systems.md) and [ADR-001](../adrs/%5BADR-001%5D%20Event%20Driven%20Architecture.md).
+- Crowd information is shared as broad, anonymous estimates rather than details about an individual visitor. See [ADR-002](../adrs/%5BADR-002%5D%20Edge%20Computer%20Vision.md).
+- The guest assistant gives helpful guidance based on approved estate data. See [ADR-010](../adrs/%5BADR-010%5D%20LLM%20Gateway%20for%20Smart%20Reporting%20and%20Chatbot.md).
+- If the question is sensitive or uncertain, the system points Marcus to a human rather than guessing. See [ADR-010](../adrs/%5BADR-010%5D%20LLM%20Gateway%20for%20Smart%20Reporting%20and%20Chatbot.md).
 
 ## Value to Marcus
 
-Marcus gets quick entry, useful crowd information, and assistance without being individually tracked. He also has a clear route to a human when his question is too important or sensitive for an automated response.
+Marcus enjoys a smoother day with less waiting and clearer directions. He gets the information he needs without feeling watched, and he knows there is always a human available for anything important or sensitive.

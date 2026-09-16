@@ -101,6 +101,16 @@ The connectivity assumption and its mitigations are documented in [`assumptions/
 - **Polyglot persistence:** ticketing, tasks, warehouse data, and time-series telemetry use different storage needs and interfaces.
 - **AI uncertainty:** the LLM gateway reduces provider and governance risk, while local and cloud rules engines provide deterministic operational boundaries.
 
+## Persona Stories
+
+The following narratives show how the estate experience looks for different staff and visitor roles:
+
+- [persona-stories/01-zookeeper.md](persona-stories/01-zookeeper.md) — animal welfare and early detection.
+- [persona-stories/02-ride-operator.md](persona-stories/02-ride-operator.md) — ride safety and queue management.
+- [persona-stories/03-estate-manager.md](persona-stories/03-estate-manager.md) — operational leadership and resource planning.
+- [persona-stories/04-individual-visitor.md](persona-stories/04-individual-visitor.md) — personal guest experience and privacy.
+- [persona-stories/05-family-visitor.md](persona-stories/05-family-visitor.md) — family access, guidance, and child-safe automation.
+
 ## Repository Structure
 
 - [`adrs/`](adrs/) — architecture decisions and their trade-offs.
@@ -108,3 +118,4 @@ The connectivity assumption and its mitigations are documented in [`assumptions/
 - [`diagrams/`](diagrams/) — the overall architecture and supporting visual artefacts.
 - [`ai/`](ai/) — supporting AI overview, software-stack, and cost analysis.
 - [`transcripts/`](transcripts/) — source discussions used to develop the decisions.
+- [`persona-stories/`](persona-stories/) — day-in-the-life perspectives from staff and visitors.
