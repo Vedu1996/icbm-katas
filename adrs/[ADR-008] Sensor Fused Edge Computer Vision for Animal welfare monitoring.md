@@ -1,15 +1,15 @@
 # ADR [008]: Sensor-Fused Edge Computer Vision for Animal Welfare Monitoring
 
-## Status
- - PROPOSED
+### Status
+- PROPOSED
 
-## Context
+### Context
 
 The Von Digitalis Estates manages an exotic collection of over 200 animals across 55 enclosures and displays, including land-based species, aquatic displays, and jumping piranhas. Estate profitability depends on early detection of animal health deterioration to reduce veterinary treatment costs and prevent livestock loss.
 
 The primary architectural constraint is the physical environment: park-wide Wi-Fi coverage is patchy, while budget is specifically allocated for MQTT-capable hardware deployed throughout the grounds. Continuous transmission of raw high-resolution video streams from 55 enclosures to a central cloud platform would saturate the wireless network, create a single point of failure during network dropouts, and fail to provide offline safety monitoring.
 
-## Decision
+### Decision
 
 Implement a **Sensor-Fused Edge Computer Vision and IoT Telemetry Architecture** using local embedded hardware at each enclosure cluster:
 
@@ -28,7 +28,7 @@ Implement a **Sensor-Fused Edge Computer Vision and IoT Telemetry Architecture**
 - **Edge Lifecycle Management:**
   - Deploy a lightweight orchestration agent on each node to manage OTA container rollouts, fine-tuned model weight distribution, and device health monitoring across all 55 displays.
 
-## Alternative Systems Considered
+### Alternatives Considered
 
 | Alternative Approach                       | Mechanism                                                                                                   | Pros                                                                | Cons / Reason for Rejection                                                                                                                                                                                  |
 | :----------------------------------------- | :---------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

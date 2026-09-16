@@ -3,7 +3,7 @@
 ### Status
 - PROPOSED
 
-### **Context**
+### Context
 * **Problem Statement**: The Von Digitalis Estates deploy a wide network of MQTT-capable IoT sensors, turnstiles, POS terminals, and edge computer vision hardware across 40 amusement rides and 55 animal displays. These devices generate continuous streams of time-stamped telemetry (e.g., ride vibration, enclosure temperatures, water pH, turnstile counts).
 * **Requirements**:
   * Ingest high-throughput, time-ordered metric streams forwarded asynchronously from edge brokers to the cloud.
@@ -21,7 +21,7 @@
 2. *General NoSQL Document Store (MongoDB)*: Flexible schema support, but lacks specialized time-partitioning, automated data downsampling/retention policies, and optimized columnar compression for metrics.
 
 
-### **Consequences**
+### Consequences
 * **Positive**:
   * **Optimized Storage & Ingestion**: Columnar compression and time-partitioned indices easily handle continuous data streams from dozens of rides and animal enclosures without degrading query performance.
   * **Built-in Temporal Aggregations**: Enables efficient windowing and trend analysis (e.g., 5-minute average temperature spikes or hourly turnstile throughput).
@@ -31,4 +31,4 @@
   * **Cloud Latency Boundary**: Because telemetry reaches the TSDB via asynchronous cloud MQTT synchronization, the TSDB is designed for trend analysis, cloud task generation, and ML training rather than immediate local sub-second emergency responses.
 
 ### Date
-[Date of the decision]
+2026-09-15

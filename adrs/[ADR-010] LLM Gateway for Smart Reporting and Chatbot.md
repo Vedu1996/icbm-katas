@@ -4,7 +4,7 @@
 - PROPOSED
 
 ### Context
-Telemetry and operational data across rides, animal enclosures, and ticketing flows into the Cloud Data Warehouse ([ADR-006](%5BADR-006%5D%20Data%20Warehouse%20over%20Data%20Lake.md)). This data will power AI-generated "Smart Reports" for staff and a guest-facing chatbot ([diagrams/overall_architecture.md](../diagrams/overall_architecture.md)) that answers customised report requests via one or more LLMs. Calling multiple external LLM providers directly from application code would couple the estate to a single vendor's API, pricing, and availability — an explicit risk for this kata ("what happens if your model provider changes price or shuts down?") — and would leave no consistent place to enforce guardrails, cost governance, ethical safeguards, or access control across two very different callers: an internal reporting service and a public-facing, family-visited chatbot.
+Telemetry and operational data across rides, animal enclosures, and ticketing flows into the Cloud Data Warehouse ([ADR-006](./%5BADR-006%5D%20Data%20Warehouse%20over%20Data%20Lake.md)). This data will power AI-generated "Smart Reports" for staff and a guest-facing chatbot ([diagrams/overall_architecture.md](../diagrams/overall_architecture.md)) that answers customised report requests via one or more LLMs. Calling multiple external LLM providers directly from application code would couple the estate to a single vendor's API, pricing, and availability — an explicit risk for this kata ("what happens if your model provider changes price or shuts down?") — and would leave no consistent place to enforce guardrails, cost governance, ethical safeguards, or access control across two very different callers: an internal reporting service and a public-facing, family-visited chatbot.
 
 ### Decision
 Introduce a single, cloud-hosted, self-hosted **LLM Gateway** as the only component permitted to call external LLM providers:
@@ -68,7 +68,7 @@ flowchart TB
 
 ### References
 - LiteLLM Proxy documentation
-- ADR-006: Direct Cloud Data Warehouse Architecture vs. Data Lake Ecosystem
+- [ADR-006](./%5BADR-006%5D%20Data%20Warehouse%20over%20Data%20Lake.md)
 
 ### Date
 2026-09-16

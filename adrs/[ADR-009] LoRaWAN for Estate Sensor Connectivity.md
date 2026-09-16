@@ -4,13 +4,13 @@
 - PROPOSED
 
 ### Context
-Wi-Fi coverage across the Von Digitalis estate is patchy, and 40 rides plus 55 animal enclosures are spread across a large, sprawling area — many remote and without existing power or cabling. [ADR-001](%5BADR-001%5D%20Event%20Driven%20Architecture.md) and [ADR-004](%5BADR-004%5D%20Local%20Edge%20Rules%20Engine.md) already solve edge-to-cloud resilience via store-and-forward, and the [connectivity assumption](../assumptions/1.%20Reliable%20Connectivity.md) treats the Edge Server-to-Cloud link as reliable and wired. The unresolved gap is **local, last-mile connectivity from distributed sensors to the Edge Server** itself.
+Wi-Fi coverage across the Von Digitalis estate is patchy, and 40 rides plus 55 animal enclosures are spread across a large, sprawling area — many remote and without existing power or cabling. [ADR-001](./%5BADR-001%5D%20Event%20Driven%20Architecture.md) and [ADR-004](./%5BADR-004%5D%20Local%20Edge%20Rules%20Engine.md) already solve edge-to-cloud resilience via store-and-forward, and the [connectivity assumption](../assumptions/1.%20Reliable%20Connectivity.md) treats the Edge Server-to-Cloud link as reliable and wired. The unresolved gap is **local, last-mile connectivity from distributed sensors to the Edge Server** itself.
 
 ### Decision
 Deploy a private LoRaWAN network across the estate:
 - **End devices** (Class A, OTAA join, battery/solar powered): environmental probes, water quality sensors, feeder load cells, foot-traffic/occupancy counters, and non-safety ride usage/cycle counters.
 - **Gateways**: multiple, overlapping outdoor units for coverage redundancy (the LoRaWAN spec natively dedupes repeated uplinks received across gateways). PoE Ethernet backhaul where wired infrastructure reaches; 4G/LTE cellular backhaul for remote gateways beyond wired reach.
-- **Network Server**: self-hosted, open-source (ChirpStack) as a containerized service on the existing Edge Compute Server. Decoded uplinks are republished as MQTT events on the existing Local MQTT Broker, reusing the sub-1KB structured event pattern from [ADR-008](%5BADR-008%5D%20Sensor%20Fused%20Edge%20Computer%20Vision%20for%20Animal%20welfare%20monitoring.md).
+- **Network Server**: self-hosted, open-source (ChirpStack) as a containerized service on the existing Edge Compute Server. Decoded uplinks are republished as MQTT events on the existing Local MQTT Broker, reusing the sub-1KB structured event pattern from [ADR-008](./%5BADR-008%5D%20Sensor%20Fused%20Edge%20Computer%20Vision%20for%20Animal%20welfare%20monitoring.md).
 - **Explicit exclusions**: CV video streams (stay on local CV compute per ADR-008) and ride safety/e-stop signals or any sub-second control loop (stay wired per ADR-004) — LoRaWAN's duty-cycle limits and Class A latency make it unsuitable for safety-critical control.
 - **Security**: OTAA with unique per-device keys, key rotation, TLS on the ChirpStack-to-MQTT bridge.
 
@@ -69,9 +69,9 @@ flowchart LR
 ### References
 - [LoRa Alliance Specification](https://lora-alliance.org/resource_hub/lorawan-specification-v1-1/)
 - [ChirpStack Documentation](https://www.chirpstack.io/docs/)
-- ADR-001: Event Driven Architecture
-- ADR-004: Local Edge Rules Engine
-- ADR-008: Sensor Fused Edge Computer Vision for Animal Welfare Monitoring
+- [ADR-001](./%5BADR-001%5D%20Event%20Driven%20Architecture.md)
+- [ADR-004](./%5BADR-004%5D%20Local%20Edge%20Rules%20Engine.md)
+- [ADR-008](./%5BADR-008%5D%20Sensor%20Fused%20Edge%20Computer%20Vision%20for%20Animal%20welfare%20monitoring.md)
 
 ### Date
 2026-09-16

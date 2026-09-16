@@ -4,7 +4,7 @@
 - PROPOSED
 
 ### Context
-Park events (ride telemetry, animal enclosure sensors, crowd density, ticketing) flow into the Cloud Event Bus ([ADR-001](%5BADR-001%5D%20Event%20Driven%20Architecture.md)). Staff need a system that evaluates these events, correlates related signals, and generates a prioritized task list dispatched into the commercial Task Management platform ([ADR-005](%5BADR-005%5D%20Task%20management%20system.md)). Unlike the [Local Edge Rules Engine](%5BADR-004%5D%20Local%20Edge%20Rules%20Engine.md) — which handles offline, sub-second safety triggers at the park edge — this engine operates in the cloud with full historical context and must (a) correlate multiple related events over time rather than react to single events in isolation, and (b) allow rules to be updated as new anomaly patterns are discovered, without redeploying the service.
+Park events (ride telemetry, animal enclosure sensors, crowd density, ticketing) flow into the Cloud Event Bus ([ADR-001](./%5BADR-001%5D%20Event%20Driven%20Architecture.md)). Staff need a system that evaluates these events, correlates related signals, and generates a prioritized task list dispatched into the commercial Task Management platform ([ADR-005](./%5BADR-005%5D%20Task%20management%20system.md)). Unlike the [Local Edge Rules Engine](./%5BADR-004%5D%20Local%20Edge%20Rules%20Engine.md) — which handles offline, sub-second safety triggers at the park edge — this engine operates in the cloud with full historical context and must (a) correlate multiple related events over time rather than react to single events in isolation, and (b) allow rules to be updated as new anomaly patterns are discovered, without redeploying the service.
 
 ### Decision
 Deploy a cloud-hosted **Business Rules Management System with Complex Event Processing (CEP)** capability — **Drools (with Drools Fusion)** or an equivalent open-source, cloud-agnostic BRMS:
@@ -67,9 +67,9 @@ flowchart TB
 
 ### References
 - Drools / Drools Fusion documentation
-- ADR-001: Event-Driven Architecture with Central Event Bus & Edge Store-and-Forward
-- ADR-004: Local Edge Rules Engine for Immediate Emergency Processing
-- ADR-005: Buy and Integrate Commercial Task Management System vs. Custom Build
+- [ADR-001](./%5BADR-001%5D%20Event%20Driven%20Architecture.md)
+- [ADR-004](./%5BADR-004%5D%20Local%20Edge%20Rules%20Engine.md)
+- [ADR-005](./%5BADR-005%5D%20Task%20management%20system.md)
 
 ### Date
 2026-09-16
